@@ -67,15 +67,15 @@ VMs setup :
 
 - Hard disk: 20GB available
 
-    **CNAME**______________________________________**FQDN**
+    **CNAME**____________________________________**FQDN**
 
-**Controller.medianet** ____________     **Controller.medianet.test**
+**Controller.medianet** ____________      controller.medianet.test**
 
-**Master1.medianet      ____________     ** Master1.medianet.test**
+**Master1.medianet      ____________      Master1.medianet.test**
 
-**worker1.medianet      ____________     ** worker1.medianet.test**
+**worker1.medianet      ____________      worker1.medianet.test**
 
-**worker2.medianet      ____________     ** worker2.medianet.test**
+**worker2.medianet      ____________      worker2.medianet.test**
 
 **1/Install Python : Ansible needs python to be installed on all the
 machines.**
