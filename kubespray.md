@@ -5,8 +5,7 @@
 
 Kubespray is a composition of Ansible playbooks, inventory, provisioning tools, and domain knowledge for generic OS/Kubernetes clusters configuration management tasks. Kubespray provides: Highly available cluster. Composable (Choice of the network plugin for instance)
 
-![](./media/image1.png){width="4.616666666666666in"
-height="1.479861111111111in"}
+![](./media/image1.png)
 
 
 - **Minimum required version of Kubernetes is v1.22**
@@ -31,7 +30,7 @@ height="1.479861111111111in"}
     the ansible_become flag or command parameters \--become or -b should
     be specified.
 
-[Minimum Hardware prerequisite]{.smallcaps}
+[Minimum Hardware prerequisite]
 
 - Master
 
