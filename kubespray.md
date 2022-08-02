@@ -153,41 +153,31 @@ cp -rfp inventory/sample inventory/prod
 ````
 file: inventory/prod/inventory.init
 
-\[all\]
+[all]
+master1.medianet ansible_host=192.168.126.174   ip=192.168.126.174
+worker2.medianet ansible_host=192.168.126.175   ip=192.168.126.175
+worker1.medianet ansible_host=192.168.126.178   ip=192.168.126.178
 
-master1.medianet ansible_host=192.168.126.174 ip=192.168.126.174
+# [bastion]
+# bastion ansible_host=x.x.x.x ansible_user=some_user
 
-worker1.medianet ansible_host=192.168.126.178 ip=192.168.126.178
-
-worker2.medianet ansible_host=192.168.126.175 ip=192.168.126.175
-
-\# \[bastion\]
-
-\# bastion ansible_host=x.x.x.x ansible_user=some_user
-
-\[kube_control_plane\]
-
+[kube_control_plane]
 master1.medianet
 
-\[etcd\]
-
+[etcd]
 master1.medianet
 
-\[kube_node\]
-
+[kube_node]
 worker1.medianet
-
 worker2.medianet
 
-\[calico_rr\]
+[calico_rr]
 
-\[k8s_cluster:children\]
-
+[k8s_cluster:children]
 kube_control_plane
-
 kube_node
-
 calico_rr
+
 ````
 **11/ run ansible-playbook**
 ````
@@ -197,13 +187,12 @@ etcd will be throwing some errors because we have only 2 etcd nodes so
 either we add another etcd node or just add an extra args " -**e
 ignore_assert_errors=yes "**
 
-\## other command :
+**other command to use in case :**
 ````
-ansible-playbook -i inventory/prod/inventory.ini \--become \\
+ansible-playbook -i inventory/prod/inventory.ini --become \
+   --user=user --become-user=root cluster.yml \
+   --extra-vars "ansible_sudo_pass=PASSWORD" \
 
-\--user=user \--become-user=root cluster.yml \\
-
-\--extra-vars \"ansible_sudo_pass=PASSWORD\" \\
 ````
 Option -i = Inventory file path
 
@@ -219,13 +208,8 @@ sudo cp -i /etc/kubernetes/admin.conf \$HOME/.kube/config
 ````
 **13 / remove cluster**
 ````
-ansible-playbook -i inventory/prod/inventory.ini reset.yml -b -v \\
-
-\--extra-vars
-\"master1.medianet,master2.medianet,master3.medianet,worker1.medianet\"
-\\
-
--e reset_nodes=false \\
-
-\--extra-vars \"ansible_sudo_pass=PASSWORD\"
+ansible-playbook -i inventory/prod/inventory.ini reset.yml -b -v \
+--extra-vars "master1.medianet,worker1.medianet,worker2.medianet" \
+-e reset_nodes=false \
+--extra-vars "ansible_sudo_pass=PASSWORD"
 ````
