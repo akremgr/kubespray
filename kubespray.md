@@ -80,8 +80,9 @@ VMs setup :
 1/Install Python : Ansible needs python to be installed on all the
 machines.
 
+'''
 yum update
-
+'''
 yum install python
 
 2/ Enalbe IPv4 forwarding by uncommenting the following line
