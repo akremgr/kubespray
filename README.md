@@ -103,10 +103,10 @@ echo \"net.ipv4.ip_forward=1\" \>\> /etc/sysctl.conf
 ````
 swapoff -a
 ````
-**4/ Setup password less SSH between ansible controller and kubernetes**
+**4/ Setup password less SSH between ansible controller and kubernetes (for controller node only)**
 nodes
 ````
-ssh-keygen -t rsa \"controller node\"
+ssh-keygen -t rsa 
 ````
 **5/ Copy over the public key to all nodes.**
 ````
@@ -116,20 +116,20 @@ ssh-copy-id worker1.medianet
 
 ssh-copy-id worker2.medianet
 ````
-**6/ Setup kubespray \"clone the official repository\"**
+**6/ Setup kubespray clone the official repository**
 ````
-git clone <https://github.com/kubernetes-incubator/kubespray.git>
+git clone https://github.com/kubernetes-incubator/kubespray.git
 
 cd kubespray
 ````
 **7/ Install Prerequisites "for ansible controller node only "**
 ````
-sudo yum install python3-pip -y  ## if use requirements.yaml file to install  requirements 
+sudo yum install python3-pip -y  ## install it if u gonna use requirements.yaml file to install  
 
 sudo pip install -r requirements.txt
 
 ````
-**Or install manually**
+**Or install requirements manually**
 
 ansible 2.11
 
@@ -137,10 +137,10 @@ ansible-core==2.12
 
 cryptography==3.4     \"encrypts variables and files\"
 
-jinja2==2.11     \"simple template files that store variables that can
+jinja2==2.11        \"simple template files that store variables that can
 change from time to time\"
 
-netaddr==0.7    \"network address manipulation library \"
+netaddr==0.7       \"network address manipulation library \"
 
 
 **8/ Set Remote User for Ansible**
@@ -185,7 +185,7 @@ calico_rr
 ````
 **11/ run ansible-playbook**
 ````
-ansible-playbook -b -v -i inventory/prod/inventory.ini cluster.yml -
+ansible-playbook -b -v -i inventory/prod/inventory.ini cluster.yml 
 ````
 > :warning:etcd will be throwing some errors because we have only 2 etcd nodes so
 either we add another etcd node or just add an extra args " -**e
