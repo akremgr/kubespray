@@ -67,18 +67,18 @@ VMs setup :
 
 - Hard disk: 20GB available
 
-     **CNAME**                                      **FQDN**
+    **CNAME**______________________________________**FQDN**
 
-**Controller.medianet**                  **Controller.medianet.test**
+**Controller.medianet** ____________     **Controller.medianet.test**
 
-**Master1.medianet                       ** Master1.medianet.test**
+**Master1.medianet      ____________     ** Master1.medianet.test**
 
-**worker1.medianet                       ** worker1.medianet.test**
+**worker1.medianet      ____________     ** worker1.medianet.test**
 
-**worker2.medianet                       ** worker2.medianet.test**
+**worker2.medianet      ____________     ** worker2.medianet.test**
 
 **1/Install Python : Ansible needs python to be installed on all the
-machines.
+machines.**
 
 ````
 yum update
@@ -86,20 +86,20 @@ yum update
 yum install python
 
 ````
-**2/ Enalbe IPv4 forwarding by uncommenting the following line
+**2/ Enalbe IPv4 forwarding by uncommenting the following line**
 ````
 echo \"net.ipv4.ip_forward=1\" \>\> /etc/sysctl.conf
 ````
-3/ Disable Swap
+**3/ Disable Swap**
 ````
 swapoff -a
 ````
-4/ Setup password less SSH between ansible controller and kubernetes
+**4/ Setup password less SSH between ansible controller and kubernetes**
 nodes
 ````
 ssh-keygen -t rsa \"controller node\"
 ````
-5/ Copy over the public key to all nodes.
+**5/ Copy over the public key to all nodes.**
 ````
 ssh-copy-id master1.medianet
 
@@ -107,13 +107,13 @@ ssh-copy-id worker1.medianet
 
 ssh-copy-id worker2.medianet
 ````
-6/ Setup kubespray \"clone the official repository\"
+**6/ Setup kubespray \"clone the official repository\"**
 ````
 git clone <https://github.com/kubernetes-incubator/kubespray.git>
 
 cd kubespray
 ````
-7/ Install Prerequisites "for ansible controller node only "
+**7/ Install Prerequisites "for ansible controller node only "**
 ````
 sudo yum install python3-pip -y
 ````
@@ -133,13 +133,13 @@ netaddr==0.7 \"network address manipulation library \"
 
 "also can be installed with requirements file "
 
-8/ Set Remote User for Ansible
+**8/ Set Remote User for Ansible**
 
 Add the following section in ansible.cfg file
 ````
 remote_user="privilioged_user"
 ````
-9/ Create Inventory
+**9/ Create Inventory**
 ````
 cp -rfp inventory/sample inventory/prod
 ````
@@ -183,7 +183,7 @@ kube_node
 
 calico_rr
 ````
-11/ run ansible-playbook
+**11/ run ansible-playbook**
 ````
 ansible-playbook -b -v -i inventory/prod/inventory.ini cluster.yml -
 ````
@@ -205,13 +205,13 @@ Option -b = Become as root user
 
 Option -v = Give verbose output
 
-12/ setup kubectl permissions
+**12/ setup kubectl permissions**
 ````
 mkdir -p \$HOME/.kube
 
 sudo cp -i /etc/kubernetes/admin.conf \$HOME/.kube/config
 ````
-13 / remove cluster
+**13 / remove cluster**
 ````
 ansible-playbook -i inventory/prod/inventory.ini reset.yml -b -v \\
 
