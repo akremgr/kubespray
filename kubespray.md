@@ -183,7 +183,7 @@ calico_rr
 ````
 ansible-playbook -b -v -i inventory/prod/inventory.ini cluster.yml -
 ````
-etcd will be throwing some errors because we have only 2 etcd nodes so
+> :warning:etcd will be throwing some errors because we have only 2 etcd nodes so
 either we add another etcd node or just add an extra args " -**e
 ignore_assert_errors=yes "**
 
