@@ -67,9 +67,9 @@ VMs setup :
 
 - Hard disk: 20GB available
 
-    **CNAME**____________________________________**FQDN**
+    **CNAME**________________________**FQDN**
 
-**Controller.medianet** ____________      controller.medianet.test**
+**Controller.medianet** ____________    **controller.medianet.test**
 
 **Master1.medianet      ____________      Master1.medianet.test**
 
