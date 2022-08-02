@@ -1,7 +1,13 @@
-kubespray k8s cluster
+# kubespray k8s cluster
+ 
+
+## what is kubespray 
+
+Kubespray is a composition of Ansible playbooks, inventory, provisioning tools, and domain knowledge for generic OS/Kubernetes clusters configuration management tasks. Kubespray provides: Highly available cluster. Composable (Choice of the network plugin for instance)
 
 ![](./media/image1.png){width="4.616666666666666in"
 height="1.479861111111111in"}
+
 
 - **Minimum required version of Kubernetes is v1.22**
 
@@ -115,23 +121,24 @@ cd kubespray
 ````
 **7/ Install Prerequisites "for ansible controller node only "**
 ````
-sudo yum install python3-pip -y
-````
+sudo yum install python3-pip -y  ## if use requirements.yaml file to install  requirements 
 
-\*\*install:
+sudo pip install -r requirements.txt
+
+````
+**Or install manually 
 
 ansible 2.11
 
 ansible-core==2.12
 
-cryptography==3.4 \"encrypts variables and files\"
+cryptography==3.4     \"encrypts variables and files\"
 
-jinja2==2.11 \"simple template files that store variables that can
+jinja2==2.11     \"simple template files that store variables that can
 change from time to time\"
 
-netaddr==0.7 \"network address manipulation library \"
+netaddr==0.7    \"network address manipulation library \"
 
-"also can be installed with requirements file "
 
 **8/ Set Remote User for Ansible**
 
