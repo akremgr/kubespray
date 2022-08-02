@@ -62,7 +62,7 @@ Kubespray is a composition of Ansible playbooks, inventory, provisioning tools, 
 
 - Kubespray is hosted on GitHub.clone the official repo from here .
 
- https://github.com/kubernetes-incubator/kubespray.git
+          https://github.com/kubernetes-incubator/kubespray.git
  
 **VMs setup :**
 
