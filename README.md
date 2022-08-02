@@ -60,7 +60,7 @@ Kubespray is a composition of Ansible playbooks, inventory, provisioning tools, 
 
 - K8s version is latest by default v24.2
 
-- Kubespray is hosted on GitHub.clone the official repo from here .
+- Kubespray is hosted on GitHub, you can clone the official repo from here:
 
    https://github.com/kubernetes-incubator/kubespray.git
  
