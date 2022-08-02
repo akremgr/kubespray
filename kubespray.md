@@ -30,7 +30,7 @@ Kubespray is a composition of Ansible playbooks, inventory, provisioning tools, 
     the ansible_become flag or command parameters \--become or -b should
     be specified.
 
-[Minimum Hardware prerequisite]
+**[Minimum Hardware prerequisite]**
 
 - Master
 
@@ -60,7 +60,7 @@ Kubespray is a composition of Ansible playbooks, inventory, provisioning tools, 
 
 - K8s version is latest by default v24.2
 
-VMs setup :
+**VMs setup :**
 
 - 3 Nodes Virtual Machines
 
@@ -125,7 +125,7 @@ sudo yum install python3-pip -y  ## if use requirements.yaml file to install  re
 sudo pip install -r requirements.txt
 
 ````
-**Or install manually 
+**Or install manually **
 
 ansible 2.11
 
