@@ -77,7 +77,7 @@ VMs setup :
 
 **worker2.medianet                       ** worker2.medianet.test**
 
-1/Install Python : Ansible needs python to be installed on all the
+**1/Install Python : Ansible needs python to be installed on all the
 machines.
 
 ````
@@ -86,7 +86,7 @@ yum update
 yum install python
 
 ````
-2/ Enalbe IPv4 forwarding by uncommenting the following line
+**2/ Enalbe IPv4 forwarding by uncommenting the following line
 ````
 echo \"net.ipv4.ip_forward=1\" \>\> /etc/sysctl.conf
 ````
