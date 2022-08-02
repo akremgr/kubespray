@@ -69,7 +69,7 @@ VMs setup :
 
     **CNAME**________________________**FQDN**
 
-**Controller.medianet** ____________    **controller.medianet.test**
+**Controller.medianet** ____________ **controller.medianet.test**
 
 **Master1.medianet      ____________      Master1.medianet.test**
 
