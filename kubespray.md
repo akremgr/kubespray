@@ -125,7 +125,7 @@ sudo yum install python3-pip -y  ## if use requirements.yaml file to install  re
 sudo pip install -r requirements.txt
 
 ````
-**Or install manually **
+**Or install manually**
 
 ansible 2.11
 
